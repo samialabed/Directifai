@@ -14,7 +14,7 @@ mvn clean package
 export CLARIFAI_APP_ID=your_client_id
 export CLARIFAI_APP_SECRET=your_client_secret
 
-java -jar target/Directifai-1-jar-with-dependencies.jar ~/absolute/path/to/directory/that/contains/images-to-tag/
+java -jar target/Directifai-1-jar-with-dependencies.jar ~/absolute/path/to/directory/that/contains/images/
 
 ```
 Results will be under folder parentFolder/Output/
@@ -40,5 +40,5 @@ Requirements
 
 WIP
 ------------
-Favour tags that group as many pictures as possible
-Add filter to less desirable tags
+* Favour tags that group as many pictures as possible
+* Add filter to less desirable tags
