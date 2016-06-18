@@ -23,7 +23,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>Tagfai</mainClass>
+							<mainClass>Directifai</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
