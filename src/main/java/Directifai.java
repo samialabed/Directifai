@@ -35,26 +35,26 @@ public class Directifai {
 			if (ImageIO.read(file) == null)
 				continue; // skip if current file isn't an image
 			System.out.println("Processing: " + file.getName());
-			sortIntoDirectryByTag(file);
+			sortIntoDirectoryByTag(file);
 		}
 		System.out.println("Finished processing images");
 	}
 
 	// move files based on their most probable tag given by Clarifai's API
-	private static void sortIntoDirectryByTag(File image) throws IOException {
+	private static void sortIntoDirectoryByTag(File image) throws IOException {
 
 		List<RecognitionResult> results =
 			clarifai.recognize(new RecognitionRequest(image));
-		// get the most probable
+		// get the most probable tag
 		Tag tag = results.get(0).getTags().get(0);
 
 		String targetDir = "./output/" + tag.getName() + "/";
 
-		// create directory for each of found tags
+		// create directory for tag
 		if (new File(targetDir).mkdirs())
 			System.out.println("New directory created: " + tag.getName());
 
-		// move from original to newly created directory
+		// move file to newly created directory
 		Path moveFrom = FileSystems.getDefault().getPath(image.getAbsolutePath());
 		Path target = FileSystems.getDefault().getPath(targetDir + image.getName());
 		Files.move(moveFrom, target, StandardCopyOption.REPLACE_EXISTING);
